@@ -11,6 +11,7 @@ import Mapbox
 
 class ViewController: UIViewController {
 
+    // Adding Mapbox
     let map = MGLMapView()
     
     override func viewDidLoad() {
