@@ -14,6 +14,7 @@
 		2A5196DB1F439965003E846F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A5196D91F439965003E846F /* LaunchScreen.storyboard */; };
 		2A5196E51F43A10D003E846F /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5196E41F43A10D003E846F /* Mapbox.framework */; };
 		2A5196E61F43A10D003E846F /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5196E41F43A10D003E846F /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2A5196EE1F43C458003E846F /* food.csv in Resources */ = {isa = PBXBuildFile; fileRef = 2A5196ED1F43C458003E846F /* food.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +40,7 @@
 		2A5196DA1F439965003E846F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A5196DC1F439965003E846F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A5196E41F43A10D003E846F /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		2A5196ED1F43C458003E846F /* food.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = food.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				2A5196D41F439965003E846F /* Main.storyboard */,
 				2A5196D71F439965003E846F /* Assets.xcassets */,
 				2A5196D91F439965003E846F /* LaunchScreen.storyboard */,
+				2A5196ED1F43C458003E846F /* food.csv */,
 				2A5196DC1F439965003E846F /* Info.plist */,
 			);
 			path = MapBoxProject;
@@ -146,6 +149,7 @@
 			files = (
 				2A5196DB1F439965003E846F /* LaunchScreen.storyboard in Resources */,
 				2A5196D81F439965003E846F /* Assets.xcassets in Resources */,
+				2A5196EE1F43C458003E846F /* food.csv in Resources */,
 				2A5196D61F439965003E846F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +352,7 @@
 				2A5196E11F439965003E846F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
