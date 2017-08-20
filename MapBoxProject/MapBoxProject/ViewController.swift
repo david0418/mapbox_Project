@@ -9,8 +9,11 @@
 import UIKit
 import Mapbox
 
+
 class ViewController: UIViewController {
 
+    var results = [[String]]()
+    
     // Adding Mapbox
     let map = MGLMapView()
     
@@ -19,17 +22,12 @@ class ViewController: UIViewController {
         
         self.view = map
         
-        var data = readDataFromCSV(name: "food", type: "csv")
-        data = cleanRows(file: data)
-        let csvRows = csv(data: data)
-        print(csvRows)
+        let data = readDataFromCSV(name: "food", type: "csv")
+        let _ = csv(data: data)
+//        print(csvRows[1])
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     func readDataFromCSV(name: String, type: String) -> String {
         
         let filepath = Bundle.main.path(forResource: name, ofType: type)
@@ -37,8 +35,7 @@ class ViewController: UIViewController {
         if let file = filepath {
             
             do {
-                var contents = try String(contentsOfFile: file)
-                contents = cleanRows(file: contents)
+                let contents = try String(contentsOfFile: file)
                 
                 return contents
                 
@@ -52,27 +49,62 @@ class ViewController: UIViewController {
     
     func cleanRows(file: String) -> String {
         
-        var cleanFile = file
-        cleanFile = cleanFile.replacingOccurrences(of: "\r", with: "\n")
-        cleanFile = cleanFile.replacingOccurrences(of: "\n\n", with: "\n")
+        let cleanFile = file
         
         return cleanFile
     }
     
-    
     func csv(data: String) -> [[String]] {
         
-        var result: [[String]] = []
         let rows = data.components(separatedBy: "\n")
+        
+     //Trims the strings
         for row in rows {
-            let columns = row.components(separatedBy: ";")
-            result.append(columns)
+        
+            let trim = row.trimmingCharacters(in: .newlines)
+            let atring = String(trim)
+            let replaceString = atring?.replacingOccurrences(of: "\"", with: "", options: .literal, range: nil)
+            let removeComma = replaceString?.replacingOccurrences(of: "'", with: "", options: .literal, range: nil)
+            let removeSemi = removeComma?.replacingOccurrences(of: ";", with: " ", options: .literal, range: nil)
+            let remove = removeSemi?.replacingOccurrences(of: ",", with: " ", options: .literal, range: nil)
+
+            let g = remove?.components(separatedBy: " ")
             
+//            if let list = g {
+//                if list.count > 6 {
+//                    
+//                let removal = list[3...6]
+//                    
+//                let join = removal.joined(separator: " ")
+//                    print(join)
+//                    
+//                }
+//            }
+            
+            results.append(g!)
         }
-        return result
+    
+        var count = 0
+        
+        for result in self.results {
+            
+            count += 1
+            
+            if count == self.results.count {
+                break
+            }
+            
+//            let idTag = result[0]
+//            let lat = result[1]
+//            let long = result[2]
+//            let name = result[3]
+//            let amenity = result[4]
+            
+//            print(amenity)
+        }
+        return results
     }
 }
-
 
 
 // Error Handling
